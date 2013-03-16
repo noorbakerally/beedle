@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Authors{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+    {% for book in books %}
+	<div data-role="collapsible">
+        	<h3>{{books[book].title}}</h3>
+        	<h3>Year:{{books[book].year}}</h3>
+        	<h3>ISBN:{{books[book].isbn}}</h3>
+        	<h3>Publisher:{{books[book].publisher}}</h3>
+		<h3>Authors:</h3>
+			<ul>
+				{% for author in books[book].author %}
+					<li>{{ author.name }}</li>
+				{% endfor %}
+			<ul>
+        </div>
+    {% endfor %}
+    {% for article in articles %}
+        <div data-role="collapsible">
+                <h3>{{articles[article].title}}</h3>
+                <h3>Year:{{articles[article].year}}</h3>
+                <h3>Authors:</h3>
+                        <ul>
+                                {% for author in articles[article].author %}
+                                        <li>{{ author.name }}</li>
+                                {% endfor %}
+                        <ul>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

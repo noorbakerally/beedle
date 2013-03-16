@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}Authors{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+<div data-role="collapsible-set" data-theme="c" data-content-theme="d">
+    {% for author in authors %}
+	<div data-role="collapsible">
+        	<h3>{{authors[author].name}}</h3>
+	{% if authors[author].books | length %}
+                <p>Books:{{authors[author].books | length}}</p>
+	{% endif %}
+	{% if authors[author].articles | length %}
+                <p>Articles:{{authors[author].articles | length}}</p>
+        {% endif %}
+	<p>No of Co-Author:{{authors[author].co_author | length}}</p>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
