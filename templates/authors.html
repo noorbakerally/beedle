@@ -14,7 +14,7 @@
 	{% if authors[author].articles | length %}
                 <p>Articles:{{authors[author].articles | length}}</p>
         {% endif %}
-	<p>No of Co-Author:{{authors[author].co_author | length}}</p>
+	<p>No of Co-Author:{{authors[author].co_authors | length}}</p>
         </div>
     {% endfor %}
 </div>
