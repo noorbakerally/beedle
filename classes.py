@@ -20,18 +20,18 @@ class Book:
             self.year = year
             self.isbn = isbn
             self.publisher = publisher
-            self.author = []
+            self.authors = []
 
     def addAuthor(self,name):
-        if name not in self.author:
-            self.author.append(name)
+        if name not in self.authors:
+            self.authors.append(name)
 
 class Article:
     def __init__(self,title,year,authors=None):
             self.title = title
             self.year = year
-            self.author = []
+            self.authors = []
 
     def addAuthor(self,name):
-        if name not in self.author:
-            self.author.append(name)
+        if name not in self.authors:
+            self.authors.append(name)
