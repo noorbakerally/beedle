@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Authors{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+
+<ul>
+	<li>Number of authors: {{authors | length}}</li>
+	<li>Total number of publications: {{ publications | length }}</li>
+	<li>Total number of Conference Papers:{{ pub_types.conference_paper }}</li>
+	<li>Total number of Journals:{{ pub_types.journal }}</li>
+	<li>Total number of Books:{{ pub_types.book }}</li>
+	<li>Total number of Book Chapters:{{ pub_types.book_chapter }}</li>
+<ul>
+{% endblock %}
