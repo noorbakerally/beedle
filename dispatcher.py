@@ -9,7 +9,7 @@ def showAuthors():
 
 @app.route("/publications")
 def showPublications():
-    return render_template('publications.html',books = data.books,articles = data.articles)
+    return render_template('publications.html',publications = data.publications)
 
 if __name__ == "__main__":
     app.run(debug=True)

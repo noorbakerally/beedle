@@ -8,13 +8,12 @@
     {% for author in authors %}
 	<div data-role="collapsible">
         	<h3>{{authors[author].name}}</h3>
-	{% if authors[author].books | length %}
-                <p>Books:{{authors[author].books | length}}</p>
-	{% endif %}
-	{% if authors[author].articles | length %}
-                <p>Articles:{{authors[author].articles | length}}</p>
-        {% endif %}
-	<p>No of Co-Author:{{authors[author].co_authors | length}}</p>
+		<p>No of Co-Author:{{authors[author].co_authors | length}}</p>
+		
+
+		{% for publication in authors[author].publications %}
+			<p>{{ publication.replace("_"," ").title() }}:{{authors[author].publications[publication] | length}}</p>
+		{% endfor %}
         </div>
     {% endfor %}
 </div>

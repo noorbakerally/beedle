@@ -7,33 +7,23 @@
 
 
 {# a function that takes a Publication and displays its authors in the li #}
-{% macro showAuthors(CurrentPublication) -%}
+{% macro showAuthors(CurrentAuthors) -%}
 	<ul>
-		{% for author in CurrentPublication.authors %}
-			<li>{{ author.name }}</li>
+		{% for author in CurrentAuthors %}
+			<li>{{ author }}</li>
 		{% endfor %}
         <ul>
 {%- endmacro %}
 
 <div data-role="collapsible-set" data-theme="c" data-content-theme="d">
-    {% for book in books %}
+    {% for publication in publications %}
 	<div data-role="collapsible">
-        	<h3>{{books[book].title}}</h3>
-        	<h3>Year:{{books[book].year}}</h3>
-        	<h3>ISBN:{{books[book].isbn}}</h3>
-        	<h3>Publisher:{{books[book].publisher}}</h3>
+        	<h3>Title:{{publications[publication].title}}</h3>
+        	<h3>Year:{{publications[publication].year}}</h3>
+        	<h3>Publication Type:{{publications[publication].pub_type.replace("_"," ").title()}}</h3>
 		<h3>Authors:</h3>
-        	{{showAuthors(books[book])}}
+        	{{showAuthors(publications[publication].authors)}}
 	
-	</div>
-    {% endfor %}
-    {% for article in articles %}
-        <div data-role="collapsible">
-                <h3>{{articles[article].title}}</h3>
-                <h3>Year:{{articles[article].year}}</h3>
-                <h3>Authors(<a href="\{{articles[article].title}}\authors">View Author Details</a>):</h3>
-        	{{showAuthors(articles[article])}}
-		
 	</div>
     {% endfor %}
 </div>

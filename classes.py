@@ -2,8 +2,8 @@ class Author:
     def __init__(self,name,co_author = None):
             self.name = name
             self.co_authors = {}
-            self.books = []
-            self.articles = []
+            self.publications = {}
+            self.publications = {"conference_paper": [], "book_chapter": [],"book": [],"journal":[]}
 
     def addAuthor(self,name):
         if name not in self.co_author:
@@ -14,24 +14,15 @@ class Author:
         del self.co_authors[self.name]
 
 
-class Book:
-    def __init__(self,title,year,isbn,publisher,authors=None):
-            self.title = title
-            self.year = year
-            self.isbn = isbn
-            self.publisher = publisher
-            self.authors = []
-
+class Publication:
+    def __init__(self,title,year,pub_type,authors=None):
+        self.title = title
+        self.year = year
+        self.authors = authors
+        self.pub_type = pub_type
+        
     def addAuthor(self,name):
         if name not in self.authors:
             self.authors.append(name)
 
-class Article:
-    def __init__(self,title,year,authors=None):
-            self.title = title
-            self.year = year
-            self.authors = []
 
-    def addAuthor(self,name):
-        if name not in self.authors:
-            self.authors.append(name)
